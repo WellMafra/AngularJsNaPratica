@@ -1,0 +1,12 @@
+<html ng-app>
+	<head>
+		<title>Hello World</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+		<script src="loopController.js"></script>
+	</head>
+	<body ng-controller="loopController">
+		<ul>
+			<li ng-repeat="fruit in fruits">{{fruit}}</li>
+		</ul>
+	</body>
+</html>
