@@ -1,0 +1,17 @@
+<html ng-app="app">
+	<head>
+		<script src="libs/angular/angular.js"></script>
+		<script src="libs/angular-resource/angular-resource.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body ng-controller="phoneController">
+		<input type="text" ng-model="idPhone" value="1"/>
+		<button ng-click="getPhoneById()">GetPhone By Id</button>
+		<hr/>
+		<button ng-click="getPhones()">GetPhones</button>
+		<hr/>
+		<button ng-click="savePhone()">Save Phone</button>
+		<hr/>
+		<button ng-click="deletePhone()">Delete Phone</button>
+	</body>
+</html>
