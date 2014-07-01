@@ -27,10 +27,9 @@ $app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 		templateUrl:'view/clientes/update.html'
 	});	
 
-	//configura o RESPONSE interceptor, usado para exibir o ícone de acesso ao servid\
-	//or
+	//configura o RESPONSE interceptor, usado para exibir o ícone de acesso ao servidor
 	// e a exibir uma mensagem de erro caso o servidor retorne algum erro
-	$httpProvider.responseInterceptors.push(function($q,$rootScope) {
+	$httpProvider.responseInterceptors.push(function($q, $rootScope) {
 		return function(promise) {
 			//Always disable loader
 			$rootScope.hideLoader();
@@ -46,7 +45,7 @@ $app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 				if ($error && $error.text) {
 					alert("ERROR: " + $error.text);	
 				} else {
-					if (response.status = 404) {
+					if (response.status == 404) {
 						alert("Erro ao acessar servidor. Página não encontrada. Veja 39 rros para maiores detalhes");	
 					} else {
 						alert("ERROR! See log console");	

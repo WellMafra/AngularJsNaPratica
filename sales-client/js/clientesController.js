@@ -1,4 +1,4 @@
-function clientesController($scope, $http, $routeParams, $location) {
+function clientesController($scope, $http, $stateParams, $location) {
 	//lista de clientes
 	$scope.rows = null;
 	//um cliente
@@ -20,9 +20,9 @@ function clientesController($scope, $http, $routeParams, $location) {
 
 
 	$scope.loadRow = function(){
-		if ($routeParams.id !== null) {
+		if ($stateParams.id !== null) {
 			$scope.showLoader();
-			$http.get($scope.server("/customer/"+$routeParams.id)).success(function(data) {
+			$http.get($scope.server("/customer/"+$stateParams.id)).success(function(data) {
 				$scope.row = data;
 				$scope.row.isUpdate = true;
 			});
@@ -36,7 +36,7 @@ function clientesController($scope, $http, $routeParams, $location) {
 	$scope.save = function(){
 		$scope.showLoader();
 
-		$http.post($scope.server("/customer/"+$routeParams.id),$scope.row).success(function(data){
+		$http.post($scope.server("/customer/"+$stateParams.id),$scope.row).success(function(data){
 			alert("Salvo com sucesso");
 			$scope.row.isUpdate = true;
 		});
@@ -44,7 +44,7 @@ function clientesController($scope, $http, $routeParams, $location) {
 
 	$scope.del = function(){
 		if (confirm("Deseja excluir " + $scope.row.CustomerID + "?")){
-			$http.delete($scope.server("/customer/"+$routeParams.id)).success(function(s){
+			$http.delete($scope.server("/customer/"+$stateParams.id)).success(function(s){
 				alert("Excluído com sucesso");
 				$location.path("/clientes");
 			});
