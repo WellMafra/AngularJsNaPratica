@@ -1,4 +1,4 @@
-SERVER_URL = "http://localhost/sales-server";
+SERVER_URL = "http://localhost:8080/sales-server/api";
 
 $app = angular.module('app', ['ui.router']);
 
